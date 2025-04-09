@@ -4,8 +4,6 @@ content="""
 <html>
     <body>
         <center>
-       
-        
         <table border="1" align="center" cellpadding="5" bgcolor="red" >
             <caption>
                 Protocal list

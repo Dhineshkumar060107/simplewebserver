@@ -22,12 +22,13 @@ Serving the HTML pages.
 Testing the webserver.
 
 ## PROGRAM:
-```html
+```py
+## PROGRAM:
+from http.server import HTTPServer,BaseHTTPRequestHandler
+content="""
 <html>
     <body>
         <center>
-        <img src="logo.png" width="450px" >
-        </center>
         <table border="1" align="center" cellpadding="5" bgcolor="red" >
             <caption>
                 Protocal list
@@ -48,16 +49,27 @@ Testing the webserver.
                 <td>4</td><td>link layer</td><td>MAC,WI-FI</td>
             </tr>
         </table>
+        </center>
     </body>
 </html>
-
-
+"""
+class myhandler(BaseHTTPRequestHandler):
+    def do_GET(self):
+        print("request received")
+        self.send_response(200)
+        self.send_header('content-type','text/html; charset=utf-8')
+        self.end_headers()
+        self.wfile.write(content.encode())
+server_address=('',8000)
+httpd=HTTPServer(server_address,myhandler)
+print("my webserver is running...")
+httpd.serve_forever()
 ```
 
 ## OUTPUT:
 
 ![alt text](image.png)
-![alt text](image-1.png)
+![alt text](image-2.png)
 
 
 ## RESULT:
