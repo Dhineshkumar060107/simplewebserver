@@ -1,5 +1,5 @@
 # EX01 Developing a Simple Webserver
-## Date:18/03/2025
+## Date:09/04/2025
 
 ## AIM:
 To develop a simple webserver to serve html pages and display the list of protocols in TCP/IP Protocol Suite.
@@ -22,73 +22,42 @@ Serving the HTML pages.
 Testing the webserver.
 
 ## PROGRAM:
-```
-from http.server import HTTPServer,BaseHTTPRequestHandler
-
-content=""""
+```html
 <html>
-<head>
-</head>
-<body>
-    <h1>LAPTOP CONFIGURATION</h1>
-    <table border="2" cellpadding="10">
-        <tr>
-            <th>Property</th>
-            <th>Details</th>
-        </tr>
-        <tr>
-            <td>Device Name</td>
-            <td>LAPTOP-P37ETSJO</td>
-        </tr>
-        <tr>
-            <td>Processor</td>
-            <td>AMD Ryzen 3 5300U with Radeon Graphics 2.60 GHz</td>
-        </tr>
-        <tr>
-            <td>Installed RAM</td>
-            <td>8.00 GB (7.33 GB usable)</td>
-        </tr>
-        <tr>
-            <td>Device ID</td>
-            <td>16508CEF-59BF-4873-8E6B-AE9FF5548F38</td>
-        </tr>
-        <tr>
-            <td>Product ID</td>
-            <td>00356-24755-03521-AAOEM</td>
-        </tr>
-        <tr>
-            <td>System Type</td>
-            <td>64-bit operating system, x64-based processor</td>
-        </tr>
-        <tr>
-            <td>Pen and Touch</td>
-            <td>No pen or touch input is available for this display</td>
-        </tr>
-    </table>
-</body>
+    <body>
+        <center>
+        <img src="logo.png" width="450px" >
+        </center>
+        <table border="1" align="center" cellpadding="5" bgcolor="red" >
+            <caption>
+                Protocal list
+            </caption>
+            <tr>
+                <th>s.no</th><th>layer</th><th>protocals</th>
+            </tr>
+            <tr>
+                <td>1</td><td>applicationlayer</td><td>HTTP,FTP,SSH,TELNET,DNS</td>
+            </tr>
+            <tr>
+                <td>2</td><td>transport layer</td><td>tcp,udp</td>
+            </tr>
+            <tr>
+                <td>3</td><td>intrnet layer</td><td>IP,IMPC</td>
+            </tr>
+            <tr>
+                <td>4</td><td>link layer</td><td>MAC,WI-FI</td>
+            </tr>
+        </table>
+    </body>
 </html>
 
-"""
 
-class MyServer(BaseHTTPRequestHandler):
-    def do_GET(self):
-        print("Get request received...")
-        self.send_response(200) 
-        self.send_header("content-type", "text/html")       
-        self.end_headers()
-        self.wfile.write(content.encode())
-
-print("This is my webserver") 
-server_address =('',8000)
-httpd = HTTPServer(server_address,MyServer)
-httpd.serve_forever()
 ```
 
 ## OUTPUT:
-!![alt text](<Screenshot 2025-03-18 210720.png>)
-![alt text](<Screenshot 2025-03-18 210618.png>)
 
-
+![alt text](image.png)
+![alt text](image-1.png)
 
 
 ## RESULT:
